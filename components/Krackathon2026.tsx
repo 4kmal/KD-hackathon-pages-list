@@ -183,8 +183,8 @@ Desc: [1-2 sentences]`}
         </div>
         
          {/* Help/Contact */}
-         <div className="md:col-span-3">
-            <div className="bg-[#444] dark:bg-[#2a2a2a] rounded-[40px] p-8 md:p-12 text-center shadow-card text-white relative overflow-hidden transition-colors duration-300">
+         <div className="md:col-span-2">
+            <div className="bg-[#444] dark:bg-[#2a2a2a] rounded-[40px] p-8 md:p-12 text-center shadow-card text-white relative overflow-hidden transition-colors duration-300 h-full flex flex-col justify-center">
                <div className="relative z-10 max-w-2xl mx-auto">
                  <h2 className="text-3xl font-bold mb-6">Need Help?</h2>
                  <p className="text-lg text-white/80 mb-8">
@@ -203,9 +203,9 @@ Desc: [1-2 sentences]`}
             </div>
          </div>
 
-         {/* Box Animation Bento */}
-         <div className="md:col-span-2 lg:col-span-3">
-           <Card category="Experience" accentColor={COLORS.dark} className="flex items-center justify-center min-h-[400px]">
+         {/* Box Animation Bento - Made narrower (1 col) and taller */}
+         <div className="md:col-span-1">
+           <Card category="Experience" accentColor={COLORS.dark} className="flex items-center justify-center h-full min-h-[500px] !bg-[#e5e5e5] dark:!bg-[#e5e5e5]">
              <BoxAnimation />
            </Card>
          </div>

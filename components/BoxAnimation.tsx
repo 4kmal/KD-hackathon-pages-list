@@ -2,7 +2,7 @@ import React from 'react';
 
 const BoxAnimation = () => {
   return (
-    <div className="w-full h-[280px] flex justify-center items-center relative z-20 mb-4 pointer-events-none select-none perspective-[1000px]">
+    <div className="w-full h-full min-h-[300px] flex justify-center items-center relative z-20 pointer-events-none select-none perspective-[1000px]">
        <style dangerouslySetInnerHTML={{__html: `
         .box-scene {
           position: relative;
@@ -77,7 +77,7 @@ const BoxAnimation = () => {
            0%, 15% { transform: translateZ(0px) rotateY(180deg) translateY(0%) translateX(0%) rotateZ(0deg); } 
            25% { transform: translateZ(0px) rotateY(180deg) translateY(var(--ty)) translateX(0%) rotateZ(0deg); } 
            35%, 50% { transform: translateZ(0px) rotateY(180deg) translateY(var(--ty)) translateX(var(--tx)) rotateZ(var(--rot)); } 
-           55% { transform: translateZ(0px) rotateY(180deg) translateY(var(--ty)) translateX(0%) rotateZ(0deg); } 
+           55% { transform: translateZ(0px) rotateY(180deg) translateY(0%) translateX(0%) rotateZ(0deg); } 
            60% { transform: translateZ(0px) rotateY(180deg) translateY(0%) translateX(0%) rotateZ(0deg); } 
            75%, 100% { transform: translateZ(0px) rotateY(180deg) translateY(0%) translateX(0%) rotateZ(0deg); } 
         }
