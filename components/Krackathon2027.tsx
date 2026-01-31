@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Card from './Card';
 import Pill from './Pill';
 import { Clock, MapPin, Trophy, Discord, Check } from './Icons';
+
+// Lazy load Cube3D to avoid initial load weight
+const Cube3D = lazy(() => import('./Cube3D'));
 
 // Cyberpunk / Futuristic Override Colors
 const CYBER_COLORS = {
@@ -14,7 +17,7 @@ const CYBER_COLORS = {
 
 const Krackathon2027 = () => {
   return (
-    <div className="space-y-12 pb-24 animate-in fade-in slide-in-from-bottom-4 duration-500 font-mono">
+    <div className="space-y-12 pb-24 animate-in fade-in slide-in-from-bottom-4 duration-500 font-mono relative">
       
       {/* 2027 Thematic Overrides */}
       <style>{`
@@ -28,8 +31,17 @@ const Krackathon2027 = () => {
         }
       `}</style>
 
+      {/* Hero Background Container */}
+      <div className="absolute top-0 left-0 w-full h-[60vh] overflow-hidden -z-10 mask-image-gradient">
+        <Suspense fallback={<div className="w-full h-full bg-[#09090b]" />}>
+           <Cube3D />
+        </Suspense>
+        {/* Gradient fade at bottom of hero */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#09090b] to-transparent pointer-events-none"></div>
+      </div>
+
       {/* Header Section */}
-      <header className="py-12 md:py-20 text-center relative z-10">
+      <header className="py-24 md:py-32 text-center relative z-10">
         <div className="inline-block mb-4 px-6 py-2 rounded-none border border-cyan-500/30 bg-cyan-900/10 backdrop-blur-md text-xs font-bold tracking-[0.3em] uppercase text-cyan-400">
           :: System V2.0 ::
         </div>
@@ -51,7 +63,7 @@ const Krackathon2027 = () => {
       </header>
 
       {/* Main Grid Layout */}
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10">
         
         {/* Quick Summary */}
         <div className="md:col-span-2">

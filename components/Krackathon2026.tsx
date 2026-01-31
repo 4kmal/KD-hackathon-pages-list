@@ -3,6 +3,7 @@ import Card from './Card';
 import Pill from './Pill';
 import { TIMELINE, PRIZES, RULES, COLORS } from '../constants';
 import { Clock, MapPin, Trophy, Discord, Check } from './Icons';
+import BoxAnimation from './BoxAnimation';
 
 const Krackathon2026 = () => {
   return (
@@ -200,6 +201,13 @@ Desc: [1-2 sentences]`}
                <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-k-teal rounded-full mix-blend-overlay opacity-20 blur-3xl"></div>
                <div className="absolute -right-20 -top-20 w-64 h-64 bg-k-red rounded-full mix-blend-overlay opacity-20 blur-3xl"></div>
             </div>
+         </div>
+
+         {/* Box Animation Bento */}
+         <div className="md:col-span-2 lg:col-span-3">
+           <Card category="Experience" accentColor={COLORS.dark} className="flex items-center justify-center min-h-[400px]">
+             <BoxAnimation />
+           </Card>
          </div>
 
       </main>
