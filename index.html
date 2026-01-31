@@ -11,17 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
               sans: ['Montserrat', 'sans-serif'],
             },
             colors: {
-              'k-bg': '#fcfcfc',
-              'k-grid': '#efefef',
-              'k-darkest': '#444444',
-              'k-darker': '#696969',
-              'k-card-bg': '#fcfcfc', // Actually slightly lighter/adjusted in prompt but we'll map
+              'k-bg': 'var(--k-bg)',
+              'k-grid': 'var(--k-grid)',
+              'k-darkest': 'var(--k-darkest)',
+              'k-darker': 'var(--k-darker)',
+              'k-card-bg': 'var(--k-card-bg)',
               'k-red': '#c34a36',
               'k-teal': '#4e8397',
               'k-peach': '#ff8066',
@@ -29,47 +30,49 @@
               'k-yellow': '#eab308',
             },
             boxShadow: {
-              'card': '0 20px 40px -14px oklch(from #000 l c h / 25%)',
+              'card': '0 20px 40px -14px var(--k-shadow)',
             }
           }
         }
       }
     </script>
     <style>
-      /* Smooth scrolling */
+      :root {
+        --k-bg: #fcfcfc;
+        --k-grid: #efefef;
+        --k-darkest: #444444;
+        --k-darker: #696969;
+        --k-card-bg: #fcfcfc;
+        --k-shadow: oklch(from #000 l c h / 25%);
+      }
+      
+      .dark {
+        --k-bg: #111111;
+        --k-grid: #222222;
+        --k-darkest: #e5e5e5;
+        --k-darker: #a3a3a3;
+        --k-card-bg: #1e1e1e;
+        --k-shadow: oklch(from #000 l c h / 60%);
+      }
+
+      /* Smooth scrolling and transitions */
       html {
         scroll-behavior: smooth;
       }
-      /* Custom Grid Pattern from prompt */
+      body {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Custom Grid Pattern from prompt - using vars */
       .bg-grid-pattern {
         background-color: var(--k-bg);
         background-image: 
-          linear-gradient(#efefef 2px, transparent 2px),
-          linear-gradient(90deg, #efefef 2px, transparent 2px),
-          linear-gradient(#efefef 1px, transparent 1px),
-          linear-gradient(90deg, #efefef 1px, #fcfcfc 1px);
+          linear-gradient(var(--k-grid) 2px, transparent 2px),
+          linear-gradient(90deg, var(--k-grid) 2px, transparent 2px),
+          linear-gradient(var(--k-grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--k-grid) 1px, var(--k-bg) 1px);
         background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
         background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
-      }
-      
-      /* Inverted Radius Utility for the specific tab look */
-      .inverted-radius-after::after {
-        content: "";
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        top: 100%;
-        left: 0;
-        background: radial-gradient(circle at 0% 100%, transparent 16px, var(--tab-bg, #fcfcfc) 17px);
-      }
-      .inverted-radius-before::before {
-        content: "";
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        top: 0;
-        left: 100%;
-        background: radial-gradient(circle at 100% 0%, transparent 16px, var(--tab-bg, #fcfcfc) 17px);
       }
     </style>
   <script type="importmap">
@@ -83,7 +86,7 @@
 }
 </script>
 </head>
-  <body class="bg-k-bg text-k-darkest font-sans antialiased bg-grid-pattern min-h-screen">
+  <body class="bg-k-bg text-k-darkest font-sans antialiased bg-grid-pattern min-h-screen transition-colors duration-300">
     <div id="root"></div>
   </body>
 </html>
