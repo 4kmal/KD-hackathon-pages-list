@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krackathon 2026 — Participant Guide</title>
+    <meta name="description" content="Participant guide for Krackathon 2026 - A KrackedDevs Event" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+              'k-bg': '#fcfcfc',
+              'k-grid': '#efefef',
+              'k-darkest': '#444444',
+              'k-darker': '#696969',
+              'k-card-bg': '#fcfcfc', // Actually slightly lighter/adjusted in prompt but we'll map
+              'k-red': '#c34a36',
+              'k-teal': '#4e8397',
+              'k-peach': '#ff8066',
+              'k-blue': '#008bc9',
+              'k-yellow': '#eab308',
+            },
+            boxShadow: {
+              'card': '0 20px 40px -14px oklch(from #000 l c h / 25%)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Custom Grid Pattern from prompt */
+      .bg-grid-pattern {
+        background-color: var(--k-bg);
+        background-image: 
+          linear-gradient(#efefef 2px, transparent 2px),
+          linear-gradient(90deg, #efefef 2px, transparent 2px),
+          linear-gradient(#efefef 1px, transparent 1px),
+          linear-gradient(90deg, #efefef 1px, #fcfcfc 1px);
+        background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+        background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+      }
+      
+      /* Inverted Radius Utility for the specific tab look */
+      .inverted-radius-after::after {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        top: 100%;
+        left: 0;
+        background: radial-gradient(circle at 0% 100%, transparent 16px, var(--tab-bg, #fcfcfc) 17px);
+      }
+      .inverted-radius-before::before {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        top: 0;
+        left: 100%;
+        background: radial-gradient(circle at 100% 0%, transparent 16px, var(--tab-bg, #fcfcfc) 17px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@radix-ui/react-icons": "https://esm.sh/@radix-ui/react-icons@^1.3.2"
+  }
+}
+</script>
+</head>
+  <body class="bg-k-bg text-k-darkest font-sans antialiased bg-grid-pattern min-h-screen">
+    <div id="root"></div>
+  </body>
+</html>
